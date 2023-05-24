@@ -1,0 +1,2 @@
+# storeMange
+store daily manage
