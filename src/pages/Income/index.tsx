@@ -27,15 +27,18 @@ const Income = () => {
   const SummaryNode = (pageData) => {
     let totalWX = 0;
     let totalZFB = 0;
-    let totalIncome = 0;
     let totalCARD = 0;
+    let totalOther = 0;
+    let totalIncome = 0;
 
     pageData.forEach((item) => {
-      const { weChat = 0, aliPay = 0, card = 0 } = item || {};
-      const incomeTotal = Number(weChat) + Number(aliPay) + Number(card);
+      const { weChat = 0, aliPay = 0, card = 0, other = 0 } = item || {};
+      const incomeTotal =
+        Number(weChat) + Number(aliPay) + Number(card) + Number(other);
       totalWX += +weChat;
       totalZFB += +aliPay;
       totalCARD += +card;
+      totalOther += +other;
       totalIncome += +incomeTotal;
     });
 
@@ -51,6 +54,9 @@ const Income = () => {
           </Table.Summary.Cell>
           <Table.Summary.Cell index={3}>
             {totalCARD.toFixed(2)}
+          </Table.Summary.Cell>
+          <Table.Summary.Cell index={3}>
+            {totalOther.toFixed(2)}
           </Table.Summary.Cell>
 
           <Table.Summary.Cell index={4}>
@@ -80,11 +86,15 @@ const Income = () => {
       dataIndex: "card",
     },
     {
+      title: "其他",
+      dataIndex: "other",
+    },
+    {
       title: "总计",
       key: "dayIncome",
       render: (_, record) => {
-        const { weChat = 0, aliPay = 0, card = 0 } = record || {};
-        const dayIncome = weChat + aliPay + card;
+        const { weChat = 0, aliPay = 0, card = 0, other = 0 } = record || {};
+        const dayIncome = weChat + aliPay + card + other;
 
         return dayIncome.toFixed(2);
       },

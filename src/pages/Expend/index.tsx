@@ -47,6 +47,7 @@ const Expend = () => {
         if (!Array.isArray(res)) {
           return;
         }
+
         const formattedData = res.map((item) => {
           const totalData = getDayTotal(item?.expendList);
 
@@ -87,6 +88,7 @@ const Expend = () => {
 
     return (
       <Table
+        rowKey={(record, index) => `${record.date}_${index}`}
         columns={columns}
         dataSource={record?.expendList}
         pagination={false}
@@ -146,7 +148,7 @@ const Expend = () => {
     },
   ];
 
-  console.log("accountData", accountData);
+  // console.log("accountData", accountData);
 
   return (
     <div className={styles.app}>

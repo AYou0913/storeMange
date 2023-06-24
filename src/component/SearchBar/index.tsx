@@ -24,7 +24,12 @@ const Income = (props: IProps) => {
 
   return (
     <div className={styles.searchBar}>
-      <Select onChange={handleSelectChange} style={{ width: 200 }}>
+      <Select
+        style={{ width: 200 }}
+        defaultValue={timeRange}
+        onChange={handleSelectChange}
+      >
+        <Select.Option value="history">开业前</Select.Option>
         <Select.Option value="22Y12M">十二月</Select.Option>
         <Select.Option value="23Y01M">一月</Select.Option>
         <Select.Option value="23Y02M">二月</Select.Option>
