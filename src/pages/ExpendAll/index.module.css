@@ -1,0 +1,12 @@
+.app {
+  padding: 16px;
+  height: 100vh;
+}
+
+.searchBar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 16;
+}
