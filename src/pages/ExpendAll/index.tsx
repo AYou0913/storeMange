@@ -57,6 +57,11 @@ const Expend = () => {
   };
 
   const handleSearch = (searchKey) => {
+    if (!searchKey) {
+      setFinallyData(accountData);
+      return;
+    }
+
     const newData: any[] = [];
     accountData.forEach((item) => {
       const { date, expendList } = item;
