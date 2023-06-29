@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Table } from "antd";
+import { Table, Checkbox } from "antd";
 
 import styles from "./index.module.css";
 
@@ -7,7 +7,7 @@ const Expend = () => {
   const [accountData, setAccountData] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/openapi/newAccount?time=23Y05M&type=debt")
+    fetch("http://127.0.0.1:3000/openapi/debt")
       .then((res) => res.json())
       .then((res) => {
         if (!Array.isArray(res)) {
@@ -58,7 +58,7 @@ const Expend = () => {
         <Table.Summary.Row>
           <Table.Summary.Cell index={0}></Table.Summary.Cell>
           <Table.Summary.Cell index={1}>合计</Table.Summary.Cell>
-          <Table.Summary.Cell index={2}>
+          <Table.Summary.Cell index={2} colSpan={3}>
             {totalAll.toFixed(2)}
           </Table.Summary.Cell>
         </Table.Summary.Row>
@@ -78,6 +78,13 @@ const Expend = () => {
     {
       title: "描述",
       dataIndex: "desc",
+    },
+    {
+      title: "核对",
+      dataIndex: "isChecked",
+      render: (isChecked) => (
+        <Checkbox checked={isChecked}>已发出明细</Checkbox>
+      ),
     },
   ];
 

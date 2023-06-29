@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Table, Tabs, Typography, Space } from "antd";
+import { Table, Tabs, Typography, Space, Descriptions } from "antd";
 
 import styles from "./index.module.css";
 
@@ -20,19 +20,45 @@ export default function Home() {
 
   return (
     <div className={styles.app}>
+      <Descriptions title="收入汇总(截止06.29)">
+        <Descriptions.Item label="微信&支付宝&龙卡">
+          164856.64
+        </Descriptions.Item>
+        <Descriptions.Item label="美团">16341.86</Descriptions.Item>
+        <Descriptions.Item label="饿了吗">2986</Descriptions.Item>
+        <Descriptions.Item label="总计收入" span={3}>
+          164856.64 + 16341.86 + 2986 = 184184.50
+        </Descriptions.Item>
+      </Descriptions>
+
+      <Descriptions title="支出汇总(截止06.29)">
+        <Descriptions.Item label="开业前支出">290449.00</Descriptions.Item>
+        <Descriptions.Item label="开业后日常">176005.91</Descriptions.Item>
+        <Descriptions.Item label="分红一次">4010</Descriptions.Item>
+        <Descriptions.Item label="总支出" span={3}>
+          290449.00 + 176005.91 + 4010 = 470464.41
+        </Descriptions.Item>
+      </Descriptions>
+
       <div>
-        <div>开业前总支出：290449.00</div>
-        <div>截止0624总收入（仅包含微信、支付宝、银行卡）：{totalIncome}</div>
-        <div>截止0624总支出（仅包含微信）：{totalExpend}</div>
+        {/* <div>支出部分：包含开业前支出+开业后支出</div>
+        <div>截止0626总支出（仅包含微信）：466454.41</div>
+        <div>其中开业前总支出：290449.00</div>
+        <div>其中开业后总支出：176005.91</div>
+        <div>分红一次,共计：4010</div>
+
+        <div>收入部分包含：微信+支付宝+银行卡+美团+饿了吗</div>
+        <div>截止0626总收入:184184.50</div>
+        <div>截止0626总收入（仅包含微信、支付宝、银行卡）：164856.64</div>
 
         <div> 饿了么截止0624总计收入：2986</div>
-        <div> 美团截止0624总计收入：16341.86</div>
+        <div> 美团截止0624总计收入：16341.86</div> */}
+
         <div>有记录的现金总支出：5527，预估现金收入约15000</div>
+        <div> 现有现金剩余(截止06.29):1172（店铺）+ 1500（积累）</div>
 
         <div>
-          总计收入约(包含现金)：
-          {totalIncome}+2986+16341.86-{totalExpend} =
-          {totalIncome + 2986 + 16341.86 - totalExpend}
+          总计收入约(不包含现金)：300000 + 184184.50 - 470464.41 = 13720.09
         </div>
 
         <Space>

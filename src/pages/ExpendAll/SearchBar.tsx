@@ -17,7 +17,7 @@ const Income = (props: IProps) => {
   };
 
   const handleClick = () => {
-    if (searchKey && typeof onSearch === "function") {
+    if (typeof onSearch === "function") {
       onSearch(searchKey);
     }
   };
